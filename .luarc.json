@@ -1,0 +1,48 @@
+{
+    "workspace.library": [
+        "C:/Users/twitc/AppData/Roaming/Code/User/globalStorage/sumneko.lua/addonManager/addons/love2d/module/library",
+        "C:/Users/twitc/AppData/Roaming/Code/User/globalStorage/sumneko.lua/addonManager/addons/penlight/module/library",
+        "${3rd}/lfs/library"
+    ]
+    ,
+
+    "workspace.ignoreDir": [
+        ".vscode",
+        "**__**",
+        "**.luacheckrc",
+        ".luacheckrc",
+        "lib/**"
+    ],
+    "diagnostics.severity": {
+        "undefined-field": "Warning!",
+        "no-unknown": "Warning!",
+        "undefined-global": "Error!"
+    },
+    "diagnostics.disable": [
+        "redefined-local"
+    ],
+    "diagnostics.groupSeverity": {
+        "strong": "Error",
+        "strict": "Error",
+        "type-check": "Warning"
+    },
+    "runtime.version": "LuaJIT",
+    "completion.callSnippet": "Both",
+    "type.weakNilCheck": true,
+    "runtime.path": [
+        "?.lua",
+        "?/init.lua",
+        "**/?.lua"
+    ],
+    "diagnostics.libraryFiles": "Enable",
+    "workspace.ignoreSubmodules": false,
+    "codeLens.enable": true,
+    "hint.enable": true,
+    "hint.setType": true,
+    "hover.expandAlias": false,
+    "type.castNumberToInteger": false,
+    "runtime.special": {
+        "love.filesystem.load": "loadfile"
+    },
+    "workspace.checkThirdParty": false
+}
