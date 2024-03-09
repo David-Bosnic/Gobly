@@ -5,7 +5,7 @@
 
 Gobly was part of the [LÖVE Jam 2024](https://itch.io/jam/love2d-jam-2024).
 The game was created in under 72 hours and matched the theme of the jam which was "Interface"
-The art style was inspired by [Grinch's utimatum](https://www.youtube.com/watch?v=BuKft9LpL_0&t=6s) and 
+The art style was inspired by [Grinch's ultimatum](https://www.youtube.com/watch?v=BuKft9LpL_0&t=6s) and 
 Used Music by [Beat Mekanik](https://freemusicarchive.org/music/beat-mekanik/single/the-urban-gentry/)
 
 ## How to play?
