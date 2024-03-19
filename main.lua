@@ -8,9 +8,9 @@ function love.load()
     love.mouse.setVisible(false)
     io.stdout:setvbuf("no")
     love.window.setMode(1920, 1080, { resizable = true, vsync = 0, minwidth = 400, minheight = 300 })
-    local aspectRatio = 1.7
+    local offset = 190
     phone = {
-        x = love.graphics.getWidth() / 6 - 260,
+        x = love.graphics.getWidth() / 6 - 260 - offset,
         y = love.graphics.getHeight() / 6 - 100,
         img = love.graphics.newImage("assets/Gobly.png")
     }
@@ -27,8 +27,8 @@ function love.load()
     }
     copium = {
         position = {
-            x = love.graphics.getWidth() / 2 - 50,
-            y = love.graphics.getHeight() / 2 - 420,
+            x = love.graphics.getWidth() / 2 - 50 - offset,
+            y = love.graphics.getHeight() / 2 - 120,
         },
         size = {
             x = 440,
@@ -38,7 +38,7 @@ function love.load()
     }
     photo = {
         position = {
-            x = love.graphics.getWidth() / 2,
+            x = love.graphics.getWidth() / 2 - offset,
             y = love.graphics.getHeight() / 2,
         },
         size = {
@@ -173,12 +173,14 @@ end
 local countdownTime = 1
 local counter = 0
 local endResult = 0
+local tick = 1
 function copiumSystem(dt)
     countdownTime = countdownTime - dt
     if countdownTime <= 0 then
-        copium.fillAmount = copium.fillAmount - 0.01
+        copium.fillAmount = copium.fillAmount - (0.01 * tick)
         countdownTime = countdownTime + 1
         counter = counter + 1
+        tick = tick * 1.01
     end
     if copium.fillAmount <= 0 and endResult == 0 then
         endResult = counter
@@ -261,16 +263,16 @@ function love.draw()
             love.graphics.draw(photo.img.Head.bald, photo.position.x + 0 - netChange, photo.position.y - 40, 0, 3, 3)
         end
 
-        --Finger
-        love.graphics.setColor(1, 1, 1, 1)
-        love.graphics.draw(finger.img, finger.position.x, finger.position.y, 0, 0.5, 0.5)
-        love.graphics.setColor(0, 1, 0)
         --Copium Bar
         love.graphics.setColor(255 / 255, 105 / 255, 180 / 255)
         love.graphics.rectangle("fill", copium.position.x + 140, copium.position.y + 55,
             copium.size.x * copium.fillAmount,
             copium.size.y)
         love.graphics.draw(copiumBar, copium.position.x, copium.position.y, 0, 1.2, 1.2)
+        --Finger
+        love.graphics.setColor(1, 1, 1, 1)
+        love.graphics.draw(finger.img, finger.position.x, finger.position.y, 0, 0.5, 0.5)
+        love.graphics.setColor(0, 1, 0)
 
         --Photo Swiping
         love.graphics.setColor(1, 0.5, 0, 1 - (netChange * netChange / 700000))
